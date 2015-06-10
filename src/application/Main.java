@@ -19,14 +19,15 @@ import application.Utils;
  * 		criar textFields a ser preenchidos por texto, numeros e email e onde a ação de um botão
  * 		irá validar os dados aí inseridos, através de métodos da classe global Utils.
  * 
- * 		Passo1: Copiar a classe main do exercício anterior
+ * 		Passo1: Copiar a classe main do exercício anterior 8 
  * 		Passo2: Criar os Gráficos:
  * 			- criar um set de layouts que permita dispor as seguintes labels e respetivos textfields
- * 			- Nome, Morada, Cidade, CPostal, Data de nascimento,
- * 		Passo3: Criar 2 botões: Validar e Fechar:
- * 			- Validar, faz a validação de cada um dos campos, usando métodos da Utils
- * 			- Fechar: fecha simlesmente janela
- * */
+ * 			- Número Fiscal, Nome, Morada, Cidade, CPostal, Data de nascimento
+ * 		Passo3: Criar 2 botões: Validar e Cancelar (fecha programa)
+ * 		Passo4: Em Share Repository, construir as validações: 
+ * 				Partilhar este projeto e o Utils. Formar grupos e 2.
+ * 				Todos os erros de validação devem ser comunicados via alertBox da Utils.
+ */
 
 public class Main extends Application {
 
@@ -63,63 +64,67 @@ public class Main extends Application {
 			Button btnLeftMenu3 = new Button("opção3");
 			layoutLeft.getChildren().addAll(btnLeftMenu1,btnLeftMenu2,btnLeftMenu3);
 			
+			
+			
 			//centerLayout- Formulário para validação de dados ---------------------------------------------
 			GridPane layoutCenter = new GridPane();					// layout para a região central
 			layoutCenter.setPadding(new Insets(10, 10, 10, 10)); 	// espaços para a janela
 			layoutCenter.setVgap(8);								// espaço entre colunas (pixeis)
 			layoutCenter.setHgap(10);								// espaço entre linhas	
 			
+			// Número fiscal
+			Label labelNFiscal = new Label("nº fiscal:");			// Nova Label
+			layoutCenter.add(labelNFiscal, 0, 0);					// célula col 0,linha 0
+			TextField txtNFiscal = new TextField();					// Campo de texto vazio
+			layoutCenter.add(txtNFiscal, 1, 0);						// célula: col 1, linha 0
+			
 			// Nome
 			Label labelName = new Label("Nome:");					// Nova Label
-			layoutCenter.add(labelName, 0, 0);						// célula col 0,linha 0
+			layoutCenter.add(labelName, 0, 1);						// célula col 0,linha 0
 			TextField txtNome = new TextField();					// Campo de texto vazio
-			layoutCenter.add(txtNome, 1, 0);						// célula: col 1, linha 0
+			layoutCenter.add(txtNome, 1, 1);						// célula: col 1, linha 0
 			
 			// Morada
 			Label labelMorada = new Label("Morada:");				// Nova Label
-			layoutCenter.add(labelMorada, 0, 1);					// célula col 0, linha 1
+			layoutCenter.add(labelMorada, 0, 2);					// célula col 0, linha 1
 			TextField txtMorada = new TextField();					// Campo de texto vazio
-			layoutCenter.add(txtMorada, 1, 1);						// célula coluna 1, linha 1
+			layoutCenter.add(txtMorada, 1, 2);						// célula coluna 1, linha 1
 
 			// Cidade
 			Label labelCidade = new Label("Cidade:");				// Nova Label
-			layoutCenter.add(labelCidade, 0, 2);					// célula col 0, linha 2
+			layoutCenter.add(labelCidade, 0, 3);					// célula col 0, linha 2
 			TextField txtCidade = new TextField();					// Campo de texto vazio
-			layoutCenter.add(txtCidade, 1, 2);						// célula coluna 1, linha 2
+			layoutCenter.add(txtCidade, 1, 3);						// célula coluna 1, linha 2
 
 			// Código postal numérico
 			Label labelCpostal = new Label("Cpostal:");				// Nova Label
-			layoutCenter.add(labelCpostal, 0, 3);					// célula col 0, linha 3
+			layoutCenter.add(labelCpostal, 0, 4);					// célula col 0, linha 3
 			TextField txtCpostal = new TextField();					// Campo de texto vazio
-			layoutCenter.add(txtCpostal, 1, 3);						// célula coluna 1, linha 3
+			layoutCenter.add(txtCpostal, 1, 4);						// célula coluna 1, linha 3
 
 			// Mail
 			Label labelMail = new Label("Mail:");					// Nova Label
-			layoutCenter.add(labelMail, 0, 4);						// célula col 0, linha 4
+			layoutCenter.add(labelMail, 0, 5);						// célula col 0, linha 4
 			TextField txtMail = new TextField();					// Campo de texto vazio
-			layoutCenter.add(txtMail, 1, 4);						// célula coluna 1, linha 4
+			layoutCenter.add(txtMail, 1, 5);						// célula coluna 1, linha 4
 			
 			// Data Nascimento
 			Label labelDataNascimento = new Label("DataNascimento:");	// Nova Label
-			layoutCenter.add(labelDataNascimento, 0, 5);				// célula col 0, linha 5
+			layoutCenter.add(labelDataNascimento, 0, 6);				// célula col 0, linha 5
 			TextField txtDataNascimento = new TextField();				// Campo de texto vazio
-			layoutCenter.add(txtDataNascimento, 1, 5);					// célula coluna 1, linha 5
+			layoutCenter.add(txtDataNascimento, 1, 6);					// célula coluna 1, linha 5
 
 			// Botão Login
 			Button btnLogin = new Button("Valida");
 			btnLogin.setOnAction(e -> {								// Acções do botão:
 				
-				if(!Utils.isText(txtNome, "Nome")){
-					Utils.alertBox("VALIDAÇÃO", "Campo Nome com erros");
-				}
-				else{
-					Utils.alertBox("VALIDAÇÃO", "Campo Nome OK");
-				}
+				// se o texto do campo XPTO não for string
+				// => Utils.alertBox("ERRO","Campo XPTO só aceita.....")
 					
-				
-				//todo: Validação
+				Utils.alertBox("A Fazer", "Validação de campos...");
+
 			});
-			layoutCenter.add(btnLogin,  1, 6);					// Botão Adicionado à coluna 1, linha 6	 
+			layoutCenter.add(btnLogin,  1, 7);					// Botão Adicionado à coluna 1, linha 6	 
 
 			
 			
