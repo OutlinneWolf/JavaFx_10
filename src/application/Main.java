@@ -100,6 +100,7 @@ public class Main extends Application {
 			Label labelCpostal = new Label("Cpostal:");				// Nova Label
 			layoutCenter.add(labelCpostal, 0, 4);					// célula col 0, linha 3
 			TextField txtCpostal = new TextField();					// Campo de texto vazio
+			txtCpostal.setPromptText("NNNN-NNN");
 			layoutCenter.add(txtCpostal, 1, 4);						// célula coluna 1, linha 3
 
 			// Mail
@@ -116,20 +117,8 @@ public class Main extends Application {
 
 			// Botão Login
 			Button btnLogin = new Button("Valida");
-			btnLogin.setOnAction(e -> {								// Acções do botão:
-				
-				// se o texto do campo XPTO não for string
-				// => Utils.alertBox("ERRO","Campo XPTO só aceita.....")
-					
-				Utils.alertBox("A Fazer", "Validação de campos...");
-
-			});
+			btnLogin.setOnAction(e -> application.Utils.verCPostal(txtCpostal.getText()));
 			layoutCenter.add(btnLogin,  1, 7);					// Botão Adicionado à coluna 1, linha 6	 
-
-			
-			
-			
-			
 			
 			//--------------------------------------------------------
 			BorderPane layoutRoot = new BorderPane();						// Preparação do rootLayout BorderPane	
